@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/add_expense"
+                android:background="@color/colorRed"
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"
+                android:text="Add Expense"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="23sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/add_savings"
+                android:background="@color/colorBlue"
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"
+                android:text="Add to savings"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="23sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"
+                android:text="Balance Amount"
+                android:id="@+id/balance_amount"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="23sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/colorPurple"
+                android:paddingTop="50dp"
+                android:paddingBottom="50dp"
+                android:id="@+id/list_of_expenses"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="23sp"
+                tools:text="List of Expenses" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>
