@@ -2,8 +2,8 @@ package com.sangeetagupta.expensemanager;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.sangeetagupta.expensemanager.databinding.ActivityMainBinding;
@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
         setListeners();
     }
 
-    public void initialize(){
+    public void initialize() {
         activityMainBinding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
     }
 
-    public void setListeners(){
+    public void setListeners() {
         activityMainBinding.addExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,21 +35,21 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding.addSavings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,AddSavingsActivity.class);
+                Intent intent = new Intent(MainActivity.this, AddSavingsActivity.class);
                 startActivity(intent);
             }
         });
         activityMainBinding.balanceAmount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,BalanceActivity.class);
+                Intent intent = new Intent(MainActivity.this, BalanceActivity.class);
                 startActivity(intent);
             }
         });
         activityMainBinding.listOfExpenses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ExpenseListActivity.class);
+                Intent intent = new Intent(MainActivity.this, ExpenseListActivity.class);
                 startActivity(intent);
             }
         });

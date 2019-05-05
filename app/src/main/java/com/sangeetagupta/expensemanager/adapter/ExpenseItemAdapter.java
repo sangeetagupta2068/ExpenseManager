@@ -1,6 +1,5 @@
 package com.sangeetagupta.expensemanager.adapter;
 
-import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,10 +12,10 @@ import java.util.List;
 
 public class ExpenseItemAdapter extends RecyclerView.Adapter<ExpenseItemAdapter.ExpenseItemViewHolder> {
 
-    private static List<ExpenseItem> expenseItemList;
+    private List<ExpenseItem> expenseItemList;
 
-    public ExpenseItemAdapter(List<ExpenseItem> expenseItems){
-        expenseItemList = expenseItems;
+    public ExpenseItemAdapter(List<ExpenseItem> expenseItems) {
+        this.expenseItemList = expenseItems;
     }
 
     @NonNull
@@ -29,7 +28,7 @@ public class ExpenseItemAdapter extends RecyclerView.Adapter<ExpenseItemAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ExpenseItemViewHolder expenseItemViewHolder, int i) {
-       expenseItemViewHolder.setExpenseItemBinding(expenseItemList.get(i));
+        expenseItemViewHolder.setExpenseItemBinding(expenseItemList.get(i));
     }
 
     @Override
@@ -47,11 +46,12 @@ public class ExpenseItemAdapter extends RecyclerView.Adapter<ExpenseItemAdapter.
 
         }
 
-        public void setExpenseItemBinding(ExpenseItem expenseItem){
+        public void setExpenseItemBinding(ExpenseItem expenseItem) {
             expenseItemBinding.itemNameQuantity.setText(expenseItem.getItemName());
             expenseItemBinding.itemPrice.setText(String.valueOf(expenseItem.getItemPrice()));
             expenseItemBinding.itemPrice.setText(expenseItem.getItemTime());
             expenseItemBinding.executePendingBindings();
         }
     }
+
 }

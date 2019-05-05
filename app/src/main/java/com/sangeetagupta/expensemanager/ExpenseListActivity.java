@@ -1,8 +1,8 @@
 package com.sangeetagupta.expensemanager;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -27,20 +27,20 @@ public class ExpenseListActivity extends AppCompatActivity {
         initialize();
     }
 
-    public void initialize(){
+    public void initialize() {
         expenseItemList = new ArrayList<>();
-        expenseItemList.add(new ExpenseItem("ABC",100.0F,"00:00",10));
-        expenseItemList.add(new ExpenseItem("ABC",100.0F,"00:00",10));
-        expenseItemList.add(new ExpenseItem("ABC",100.0F,"00:00",10));
-        expenseItemList.add(new ExpenseItem("ABC",100.0F,"00:00",10));
-        expenseItemList.add(new ExpenseItem("ABC",100.0F,"00:00",10));
+        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
+        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
+        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
+        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
+        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
 
-        expenseListBinding = DataBindingUtil.setContentView(this,R.layout.activity_expense_list);
+        expenseListBinding = DataBindingUtil.setContentView(this, R.layout.activity_expense_list);
 
-        if(expenseItemList.size() == 0 ||  expenseItemList == null){
+        if (expenseItemList.size() == 0 || expenseItemList == null) {
             expenseListBinding.recyclerView.setVisibility(View.INVISIBLE);
             expenseListBinding.flagTextView.setVisibility(View.VISIBLE);
-        } else{
+        } else {
             expenseListBinding.recyclerView.setVisibility(View.VISIBLE);
             expenseListBinding.flagTextView.setVisibility(View.INVISIBLE);
         }
@@ -54,4 +54,5 @@ public class ExpenseListActivity extends AppCompatActivity {
         expenseListBinding.recyclerView.setAdapter(expenseItemAdapter);
 
     }
+
 }
