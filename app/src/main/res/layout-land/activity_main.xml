@@ -79,7 +79,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
                 android:textSize="23sp"
-                tools:text="List of Expenses" />
+                android:text ="List of Expenses" />
 
         </LinearLayout>
 

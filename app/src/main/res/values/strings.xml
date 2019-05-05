@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Expense Manager</string>
+    <string-array name="item_purchase_type_array">
+        <item>Normal</item>
+        <item>Bulk purchase</item>
+    </string-array>
 </resources>

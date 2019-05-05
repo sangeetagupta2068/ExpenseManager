@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BalanceActivity"></activity>
+        <activity android:name=".ExpenseListActivity"></activity>
+        <activity android:name=".BalanceActivity" />
         <activity android:name=".AddExpenseActivity" />
         <activity android:name=".AddSavingsActivity" />
         <activity android:name=".MainActivity">

@@ -72,11 +72,12 @@
                 android:layout_weight="1"
                 android:background="@color/colorPurple"
                 android:paddingTop="50dp"
+                android:text ="List of Expenses"
                 android:paddingBottom="50dp"
+                android:id="@+id/list_of_expenses"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
-                android:textSize="23sp"
-                tools:text="Monthly Balance" />
+                android:textSize="23sp" />
 
         </LinearLayout>
 

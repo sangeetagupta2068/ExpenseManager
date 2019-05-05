@@ -12,10 +12,10 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding activityMainBinding;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         initialize();
         setListeners();
     }
@@ -43,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,BalanceActivity.class);
+                startActivity(intent);
+            }
+        });
+        activityMainBinding.listOfExpenses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ExpenseListActivity.class);
                 startActivity(intent);
             }
         });

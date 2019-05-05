@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_gravity="start"
         android:layout_height="60dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
         android:textSize="23sp"
         android:layout_marginTop="50dp"
         android:text="Total Balance : "/>
