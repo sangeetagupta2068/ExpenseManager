@@ -1,7 +1,10 @@
 package com.sangeetagupta.expensemanager;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +12,7 @@ import android.view.View;
 
 import com.sangeetagupta.expensemanager.adapter.ExpenseItemAdapter;
 import com.sangeetagupta.expensemanager.data.ExpenseItem;
+import com.sangeetagupta.expensemanager.database.ExpenseViewModel;
 import com.sangeetagupta.expensemanager.databinding.ActivityExpenseListBinding;
 
 import java.util.ArrayList;
@@ -29,11 +33,7 @@ public class ExpenseListActivity extends AppCompatActivity {
 
     public void initialize() {
         expenseItemList = new ArrayList<>();
-        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
-        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
-        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
-        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
-        expenseItemList.add(new ExpenseItem("ABC", 100.0F, "00:00", 10));
+        setUpViewModel();
 
         expenseListBinding = DataBindingUtil.setContentView(this, R.layout.activity_expense_list);
 
@@ -53,6 +53,17 @@ public class ExpenseListActivity extends AppCompatActivity {
         expenseListBinding.recyclerView.setLayoutManager(layoutManager);
         expenseListBinding.recyclerView.setAdapter(expenseItemAdapter);
 
+    }
+
+    private void setUpViewModel(){
+        ExpenseViewModel expenseViewModel = ViewModelProviders.of(this).get(ExpenseViewModel.class);
+        expenseViewModel.getExpenseItems().observe(this, new Observer<List<ExpenseItem>>() {
+            @Override
+            public void onChanged(@Nullable List<ExpenseItem> expenseItems) {
+                expenseItemList.clear();
+                expenseItemList = expenseItems;
+            }
+        });
     }
 
 }
