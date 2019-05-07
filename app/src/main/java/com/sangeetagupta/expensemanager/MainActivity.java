@@ -8,14 +8,17 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.add_expense) TextView addExpense;
-    @BindView(R.id.add_savings) TextView addSavings;
-    @BindView(R.id.balance_amount) TextView balanceAmount;
-    @BindView(R.id.list_of_expenses) TextView listOfExpenses;
+    @BindView(R.id.add_expense)
+    TextView addExpense;
+    @BindView(R.id.add_savings)
+    TextView addSavings;
+    @BindView(R.id.balance_amount)
+    TextView balanceAmount;
+    @BindView(R.id.list_of_expenses)
+    TextView listOfExpenses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -26,7 +26,7 @@ public class ExpenseItemAdapter extends RecyclerView.Adapter<ExpenseItemAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ExpenseItemViewHolder expenseItemViewHolder, int i) {
-        expenseItemViewHolder.setExpenseItemBinding(ExpenseListActivity.expenseItems.get(i));
+        expenseItemViewHolder.setExpenseItem(ExpenseListActivity.expenseItems.get(i));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class ExpenseItemAdapter extends RecyclerView.Adapter<ExpenseItemAdapter.
             ButterKnife.bind(this, view);
         }
 
-        public void setExpenseItemBinding(ExpenseItem expenseItem) {
+        public void setExpenseItem(ExpenseItem expenseItem) {
             itemNameQuantity.setText(String.format("%s (%d)", expenseItem.getItemName(), expenseItem.getItemQuantity()));
             itemPrice.setText(String.valueOf(expenseItem.getItemPrice()));
             itemTime.setText(expenseItem.getItemTime());

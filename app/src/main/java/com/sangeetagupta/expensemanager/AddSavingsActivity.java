@@ -11,8 +11,10 @@ import butterknife.ButterKnife;
 
 public class AddSavingsActivity extends AppCompatActivity {
 
-    @BindView(R.id.button) Button button;
-    @BindView(R.id.add_amount_edit_text) EditText addAmountEditText;
+    @BindView(R.id.button)
+    Button button;
+    @BindView(R.id.add_amount_edit_text)
+    EditText addAmountEditText;
     private float savingsAmount;
 
     @Override

@@ -19,10 +19,6 @@ import butterknife.ButterKnife;
 
 public class AddExpenseActivity extends AppCompatActivity {
 
-    private String expenseItemName;
-    private float expenseItemPrice;
-    private int expenseItemQuanity;
-
     @BindView(R.id.submit)
     Button submit;
     @BindView(R.id.quantity)
@@ -31,6 +27,9 @@ public class AddExpenseActivity extends AppCompatActivity {
     EditText price;
     @BindView(R.id.item_name)
     EditText itemName;
+    private String expenseItemName;
+    private float expenseItemPrice;
+    private int expenseItemQuanity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

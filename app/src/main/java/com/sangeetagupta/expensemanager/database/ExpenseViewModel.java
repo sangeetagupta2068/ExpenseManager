@@ -3,7 +3,6 @@ package com.sangeetagupta.expensemanager.database;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
-import android.support.annotation.NonNull;
 
 import com.sangeetagupta.expensemanager.data.ExpenseItem;
 

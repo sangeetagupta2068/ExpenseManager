@@ -26,18 +26,40 @@ public class ExpenseItem {
     public String getItemName() {
         return itemName;
     }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
     public float getItemPrice() {
         return itemPrice;
     }
+
+    public void setItemPrice(int itemPrice) {
+        this.itemPrice = itemPrice;
+    }
+
     public String getItemTime() {
         return itemTime;
     }
-    public int getItemQuantity(){ return itemQuantity;}
-    public int getItemId(){ return itemId; }
 
-    public void setItemId(int itemId) {this.itemId = itemId;}
-    public void setItemPrice(int itemPrice) {this.itemPrice = itemPrice;}
-    public void setItemTime(String itemTime){this.itemTime = itemTime;}
-    public void setItemQuantity(int itemQuantity){this.itemQuantity = itemQuantity;}
-    public void setItemName(String itemName) {this.itemName = itemName;}
+    public void setItemTime(String itemTime) {
+        this.itemTime = itemTime;
+    }
+
+    public int getItemQuantity() {
+        return itemQuantity;
+    }
+
+    public void setItemQuantity(int itemQuantity) {
+        this.itemQuantity = itemQuantity;
+    }
+
+    public int getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
 }

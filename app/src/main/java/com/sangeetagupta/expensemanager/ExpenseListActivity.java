@@ -23,12 +23,13 @@ import butterknife.ButterKnife;
 
 public class ExpenseListActivity extends AppCompatActivity {
 
+    public static List<ExpenseItem> expenseItems;
     ExpenseItemAdapter expenseItemAdapter;
     RecyclerView.LayoutManager layoutManager;
-    public static List<ExpenseItem> expenseItems;
-
-    @BindView(R.id.recyclerView) RecyclerView recyclerView;
-    @BindView(R.id.flag_text_view) TextView flagTextView;
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+    @BindView(R.id.flag_text_view)
+    TextView flagTextView;
 
 
     @Override
@@ -39,25 +40,30 @@ public class ExpenseListActivity extends AppCompatActivity {
         initialize();
     }
 
-    public void initialize() {
+    private void initialize() {
+
+        expenseItems = new ArrayList<>();
 
         layoutManager = new LinearLayoutManager(this);
 
         expenseItemAdapter = new ExpenseItemAdapter();
-        expenseItems = new ArrayList<>();
+        expenseItemAdapter.notifyDataSetChanged();
+
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(expenseItemAdapter);
+
         setUpViewModel();
 
-        if (expenseItems.size() == 0 || expenseItems == null) {
+    }
+
+    private void displayViews() {
+        if (expenseItems.size() == 0) {
             recyclerView.setVisibility(View.INVISIBLE);
             flagTextView.setVisibility(View.VISIBLE);
         } else {
             recyclerView.setVisibility(View.VISIBLE);
             flagTextView.setVisibility(View.INVISIBLE);
         }
-        expenseItemAdapter.notifyDataSetChanged();
-
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(expenseItemAdapter);
 
     }
 
@@ -67,7 +73,8 @@ public class ExpenseListActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable List<ExpenseItem> expenseItemList) {
                 expenseItems.clear();
-                expenseItems = expenseItemList;
+                expenseItems = (ArrayList) expenseItemList;
+                displayViews();
             }
         });
     }
