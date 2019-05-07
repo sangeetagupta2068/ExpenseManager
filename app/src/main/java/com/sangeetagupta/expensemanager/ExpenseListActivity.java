@@ -14,6 +14,7 @@ import com.sangeetagupta.expensemanager.adapter.ExpenseItemAdapter;
 import com.sangeetagupta.expensemanager.data.ExpenseItem;
 import com.sangeetagupta.expensemanager.database.ExpenseViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -26,16 +27,14 @@ public class ExpenseListActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     public static List<ExpenseItem> expenseItems;
 
-    @BindView(R.id.recyclerView)
-    RecyclerView recyclerView;
-    @BindView(R.id.flag_text_view)
-    TextView flagTextView;
+    @BindView(R.id.recyclerView) RecyclerView recyclerView;
+    @BindView(R.id.flag_text_view) TextView flagTextView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_expense_list);
         ButterKnife.bind(this);
         initialize();
     }
@@ -45,6 +44,7 @@ public class ExpenseListActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
 
         expenseItemAdapter = new ExpenseItemAdapter();
+        expenseItems = new ArrayList<>();
         setUpViewModel();
 
         if (expenseItems.size() == 0 || expenseItems == null) {
