@@ -1,52 +1,53 @@
 package com.sangeetagupta.expensemanager;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
-import com.sangeetagupta.expensemanager.databinding.ActivityMainBinding;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding activityMainBinding;
-
+    @BindView(R.id.add_expense) TextView addExpense;
+    @BindView(R.id.add_savings) TextView addSavings;
+    @BindView(R.id.balance_amount) TextView balanceAmount;
+    @BindView(R.id.list_of_expenses) TextView listOfExpenses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initialize();
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         setListeners();
     }
 
-    public void initialize() {
-        activityMainBinding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
-    }
-
     public void setListeners() {
-        activityMainBinding.addExpense.setOnClickListener(new View.OnClickListener() {
+        addExpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddExpenseActivity.class);
                 startActivity(intent);
             }
         });
-        activityMainBinding.addSavings.setOnClickListener(new View.OnClickListener() {
+        addSavings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddSavingsActivity.class);
                 startActivity(intent);
             }
         });
-        activityMainBinding.balanceAmount.setOnClickListener(new View.OnClickListener() {
+        balanceAmount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, BalanceActivity.class);
                 startActivity(intent);
             }
         });
-        activityMainBinding.listOfExpenses.setOnClickListener(new View.OnClickListener() {
+        listOfExpenses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ExpenseListActivity.class);

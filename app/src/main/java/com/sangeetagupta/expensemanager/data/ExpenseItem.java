@@ -4,8 +4,6 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import java.util.Date;
-
 @Entity(tableName = "expense_table")
 public class ExpenseItem {
 
@@ -26,18 +24,20 @@ public class ExpenseItem {
     }
 
     public String getItemName() {
-        return itemName + " (" + itemQuantity + ")";
+        return itemName;
     }
-
     public float getItemPrice() {
         return itemPrice;
     }
-
     public String getItemTime() {
         return itemTime;
     }
+    public int getItemQuantity(){ return itemQuantity;}
+    public int getItemId(){ return itemId; }
 
-    public void setItemTime(Date d) {
-        //todo item
-    }
+    public void setItemId(int itemId) {this.itemId = itemId;}
+    public void setItemPrice(int itemPrice) {this.itemPrice = itemPrice;}
+    public void setItemTime(String itemTime){this.itemTime = itemTime;}
+    public void setItemQuantity(int itemQuantity){this.itemQuantity = itemQuantity;}
+    public void setItemName(String itemName) {this.itemName = itemName;}
 }

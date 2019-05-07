@@ -3,54 +3,54 @@ package com.sangeetagupta.expensemanager.adapter;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.sangeetagupta.expensemanager.ExpenseListActivity;
+import com.sangeetagupta.expensemanager.R;
 import com.sangeetagupta.expensemanager.data.ExpenseItem;
-import com.sangeetagupta.expensemanager.databinding.ExpenseItemBinding;
 
-import java.util.List;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ExpenseItemAdapter extends RecyclerView.Adapter<ExpenseItemAdapter.ExpenseItemViewHolder> {
-
-    private List<ExpenseItem> expenseItemList;
-
-    public ExpenseItemAdapter(List<ExpenseItem> expenseItems) {
-        this.expenseItemList = expenseItems;
-    }
 
     @NonNull
     @Override
     public ExpenseItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        ExpenseItemBinding expenseItemBinding = ExpenseItemBinding.inflate(layoutInflater, viewGroup, false);
-        return new ExpenseItemViewHolder(expenseItemBinding);
+        View view = layoutInflater.inflate(R.layout.expense_item, viewGroup, false);
+        return new ExpenseItemViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ExpenseItemViewHolder expenseItemViewHolder, int i) {
-        expenseItemViewHolder.setExpenseItemBinding(expenseItemList.get(i));
+        expenseItemViewHolder.setExpenseItemBinding(ExpenseListActivity.expenseItems.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return expenseItemList.size();
+        return ExpenseListActivity.expenseItems.size();
     }
 
     public class ExpenseItemViewHolder extends RecyclerView.ViewHolder {
 
-        ExpenseItemBinding expenseItemBinding;
+        @BindView(R.id.item_name_quantity) TextView itemNameQuantity;
+        @BindView(R.id.item_price) TextView itemPrice;
+        @BindView(R.id.item_time) TextView itemTime;
 
-        public ExpenseItemViewHolder(@NonNull ExpenseItemBinding expenseItemBinding) {
-            super(expenseItemBinding.getRoot());
-            this.expenseItemBinding = expenseItemBinding;
+        View view;
 
+        public ExpenseItemViewHolder(@NonNull View view) {
+            super(view);
+            ButterKnife.bind(this, view);
         }
 
         public void setExpenseItemBinding(ExpenseItem expenseItem) {
-            expenseItemBinding.itemNameQuantity.setText(expenseItem.getItemName());
-            expenseItemBinding.itemPrice.setText(String.valueOf(expenseItem.getItemPrice()));
-            expenseItemBinding.itemPrice.setText(expenseItem.getItemTime());
-            expenseItemBinding.executePendingBindings();
+            itemNameQuantity.setText(String.format("%s (%d)", expenseItem.getItemName(), expenseItem.getItemQuantity()));
+            itemPrice.setText(String.valueOf(expenseItem.getItemPrice()));
+            itemTime.setText(expenseItem.getItemTime());
         }
     }
 

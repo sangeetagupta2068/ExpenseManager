@@ -3,6 +3,7 @@ package com.sangeetagupta.expensemanager.database;
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
@@ -18,5 +19,8 @@ public interface ExpenseItemDao {
 
     @Insert
     void insertExpenseItem(ExpenseItem expenseItem);
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    void updateExpenseItem(ExpenseItem expenseItem);
 
 }
